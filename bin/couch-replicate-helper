@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'couch-replicate'
+require 'trollop'
+
+opts = Trollop::options do
+  opt :host, "Host addr", :default => '127.0.0.1'
+  opt :port, "Port", :default => '5984'
+  opt :dbname, "Database", :type => String
+  opt :source, "Source", :type => String
+  opt :dest, "Destination", :type => String
+end
+
+db = "http://#{opts[:host]}:#{opts[:port]}/#{opts[:dbname]}"
+puts db
+
+replicate = CouchReplicate.new(db)
+replicate.replicate(opts[:source],opts[:dest])
