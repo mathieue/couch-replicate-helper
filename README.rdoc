@@ -1,6 +1,6 @@
 = couch-replicate-helper
 
-Description goes here.
+couch-replicate-helper --host 10.0.0.8 --dbname mydb  --source "http://10.0.0.8:5984/mydb" --dest "http://10.0.0.123:5984/mydb"
 
 == Contributing to couch-replicate-helper
  
